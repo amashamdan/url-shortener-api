@@ -10,7 +10,7 @@ var MongoClient = mongodb.MongoClient;
 var url = process.env.MLAB_LINK;
 /* get request for the root folder. An html file will be delivered. */
 app.get("/", function(req, res) {
-	res.end("Enter a url");
+	res.sendFile(__dirname + "/index.html");
 });
 /* get request for a url, url param can be a new url to store, or a number to load already saved website. The '*' after :url is used to read forward slashes and not assume that a new root is called. */
 app.get("/:url*", function(req, res) {
